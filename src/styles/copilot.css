@@ -1,0 +1,224 @@
+/* ============================================================
+   AURA AI Operations Copilot — Styling
+   ============================================================ */
+
+.copilot-card {
+  animation: riseIn var(--duration-med) var(--ease-standard) both;
+}
+
+.copilot-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.suggestion-chip {
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.suggestion-chip:hover {
+  border-color: var(--cyan);
+  background: rgba(80, 227, 242, 0.08);
+  color: var(--cyan);
+  transform: translateY(-1px);
+}
+
+.copilot-chat-history {
+  display: grid;
+  gap: var(--space-4);
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: var(--space-4);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--space-4);
+  scroll-behavior: smooth;
+}
+
+.chat-bubble-wrapper {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 80%;
+}
+
+.chat-bubble-wrapper.from-user {
+  justify-self: end;
+}
+
+.chat-bubble-wrapper.from-ai {
+  justify-self: start;
+}
+
+.chat-bubble {
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  position: relative;
+}
+
+.from-user .chat-bubble {
+  background: rgba(87, 168, 255, 0.12);
+  border-color: rgba(87, 168, 255, 0.25);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.from-ai .chat-bubble {
+  background: rgba(85, 213, 138, 0.08);
+  border-color: rgba(85, 213, 138, 0.25);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.bubble-sender {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-subtle);
+  margin-bottom: var(--space-1);
+  text-transform: uppercase;
+}
+
+.from-user .bubble-sender {
+  color: var(--blue);
+}
+
+.from-ai .bubble-sender {
+  color: var(--green);
+}
+
+.bubble-content {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.bubble-content p {
+  margin: 0 0 var(--space-2);
+}
+.bubble-content p:last-child {
+  margin: 0;
+}
+
+.copilot-input-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+}
+
+.copilot-input-form input {
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.copilot-input-form input:focus {
+  border-color: var(--cyan);
+  outline: none;
+}
+
+.btn-copilot-submit {
+  border: 1px solid rgba(80, 227, 242, 0.45);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(80, 227, 242, 0.95), rgba(87, 168, 255, 0.88));
+  color: #031018;
+  padding: 0.8rem 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-copilot-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(80, 227, 242, 0.2);
+}
+
+.btn-copilot-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Typing Indicator ---- */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 1rem;
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: typing 1s infinite alternate;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  from { transform: translateY(0); opacity: 0.4; }
+  to { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ---- Chat Action Button ---- */
+.btn-chat-action {
+  border: 1px solid var(--stroke-strong);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btn-chat-action:hover {
+  border-color: var(--cyan);
+  background: rgba(80, 227, 242, 0.1);
+  color: var(--cyan);
+}
+
+.chat-reasoning-dropdown {
+  margin-top: var(--space-1);
+}
+
+.chat-reasoning-dropdown summary {
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.reasoning-detail-box {
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.15);
+  padding: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.reasoning-detail-box ul {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.reasoning-detail-box li {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

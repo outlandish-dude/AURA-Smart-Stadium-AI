@@ -1,0 +1,98 @@
+/* ============================================================
+   Sustainability view specific styling
+   ============================================================ */
+
+.sustainability-map-container {
+  position: relative;
+  min-height: 28rem;
+  margin-top: var(--space-5);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(85,213,138,0.05), transparent 30rem),
+    #05080c;
+  background-size: 32px 32px, 32px 32px, auto, auto;
+  overflow: hidden;
+}
+
+.sustainability-map-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+.green-solar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.green-battery-card {
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.04);
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.battery-display-bar {
+  height: 3rem;
+  border: 2px solid var(--stroke-strong);
+  border-radius: var(--radius-md);
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: var(--space-3) auto;
+  width: 100%;
+  max-width: 12rem;
+}
+
+.battery-charge-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  z-index: 1;
+}
+
+.battery-charge-label {
+  position: relative;
+  z-index: 2;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.smart-bin-bars {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.smart-bin-row {
+  display: grid;
+  grid-template-columns: 8rem 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.smart-bin-track {
+  height: 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.smart-bin-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.smart-bin-fill.priority-critical { background: var(--red); }
+.smart-bin-fill.priority-high { background: var(--orange); }
+.smart-bin-fill.priority-normal { background: var(--green); }
