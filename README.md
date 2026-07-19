@@ -16,20 +16,17 @@
 
 <br/>
 
-[![Stars](https://img.shields.io/github/stars/rajdeepchakraborty/aura-mission-control?style=social)](.)
-[![Forks](https://img.shields.io/github/forks/rajdeepchakraborty/aura-mission-control?style=social)](.)
-[![Issues](https://img.shields.io/github/issues/rajdeepchakraborty/aura-mission-control?color=red)](.)
-
-</div>
+[![Stars](https://img.shields.io/github/stars/outlandish-dude/AURA-Smart-Stadium-AI?style=social)](https://github.com/outlandish-dude/AURA-Smart-Stadium-AI)
+[![Forks](https://img.shields.io/github/forks/outlandish-dude/AURA-Smart-Stadium-AI?style=social)](https://github.com/outlandish-dude/AURA-Smart-Stadium-AI)
+[![Issues](https://img.shields.io/github/issues/outlandish-dude/AURA-Smart-Stadium-AI?color=red)](https://github.com/outlandish-dude/AURA-Smart-Stadium-AI)
 
 ---
 
 <div align="center">
 
-<!-- DASHBOARD SCREENSHOT PLACEHOLDER -->
-<img src="docs/assets/dashboard.png" alt="AURA Mission Command Center" width="90%" style="border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.4);"/>
+**AURA Mission Command Center — Real-time AI operations dashboard for FIFA World Cup 2026 · MetLife Stadium**
 
-<sup>↑ AURA Mission Command Center — Real-time AI operations dashboard for FIFA World Cup 2026 · MetLife Stadium</sup>
+*(Screenshot will be added after deployment.)*
 
 </div>
 
@@ -177,13 +174,6 @@ An enterprise-grade AI transparency layer with:
 
 ## 🏗️ Architecture
 
-<div align="center">
-
-<!-- ARCHITECTURE DIAGRAM PLACEHOLDER -->
-<img src="docs/assets/architecture.png" alt="AURA Architecture Diagram" width="80%"/>
-
-</div>
-
 ```mermaid
 graph TB
     subgraph "👤 Client Layer"
@@ -297,13 +287,6 @@ graph LR
 
 ## 🤖 AI Workflow
 
-<div align="center">
-
-<!-- AI WORKFLOW PLACEHOLDER -->
-<img src="docs/assets/ai-workflow.png" alt="AURA AI Reasoning Workflow" width="80%"/>
-
-</div>
-
 ```mermaid
 flowchart TD
     A([🔭 Observe]) --> B([🧠 Reason])
@@ -369,6 +352,10 @@ aura-mission-control/
 ├── 📄 index.html                         # Application entry point
 ├── ⚙️  server.mjs                         # Node.js HTTP server + REST API router
 ├── 📦 package.json                       # Project metadata and scripts
+├── 🔑 .env                               # Active environment variables (gitignored)
+├── 🔑 .env.example                       # Environment variables template
+├── 📄 LICENSE                            # MIT License file
+├── 🛡️  .gitignore                         # Git ignore configurations
 │
 ├── 📂 src/
 │   ├── 🎯 main.js                        # Root application controller + state manager
@@ -381,7 +368,7 @@ aura-mission-control/
 │   │   ├── accessibilityPanel.js         # ♿ Accessibility AI (mobility, routes, compliance)
 │   │   ├── sustainabilityPanel.js        # 🌱 Sustainability (carbon, waste, energy, water)
 │   │   ├── copilotPanel.js               # 🤖 AI Copilot (streaming conversational assistant)
-│   │   └── crowdIntelligence.js          # Legacy crowd panel (original implementation)
+│   │   └── crowdIntelligence.js          # Legacy crowd panel
 │   │
 │   ├── 📂 lib/                           # Business logic + analysis engines
 │   │   ├── baseAnalysisEngine.js         # 🔧 Shared analysis utilities (percentage, clamp, etc.)
@@ -424,9 +411,9 @@ aura-mission-control/
 │       ├── sustainability.css            # 🌱 Sustainability panel styles
 │       └── copilot.css                   # 🤖 AI Copilot chat interface styles
 │
-├── 📂 supabase/                          # Supabase migrations and seed data
-├── 📂 docs/                              # Documentation and assets
-│   └── 📂 assets/                        # Screenshots, diagrams, banner
+├── 📂 supabase/                          # Supabase schema definitions
+├── 📂 docs/                              # Documentation
+│   └── 📂 ai/                            # AI specification files
 │
 └── 📂 scripts/
     └── check.mjs                         # Static integrity validator
@@ -494,8 +481,8 @@ npm --version   # 10.0.0+
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/rajdeepchakraborty/aura-mission-control.git
-cd aura-mission-control
+git clone https://github.com/outlandish-dude/AURA-Smart-Stadium-AI.git
+cd AURA-Smart-Stadium-AI
 ```
 
 ### Step 2 — Install Dependencies
@@ -504,7 +491,7 @@ cd aura-mission-control
 npm install
 ```
 
-> **Note:** AURA is built with zero frontend bundler dependencies. The only required runtime is Node.js.
+> **Note:** AURA is built with zero frontend bundler dependencies. The only required runtime dependency is `dotenv` for env configuration on Node.js.
 
 ### Step 3 — Configure Environment
 
@@ -533,38 +520,6 @@ npm start
 # AURA Mission Control available at http://localhost:4173
 ```
 
-### Step 6 — Deploy to Production
-
-<details>
-<summary><strong>Deploy to Cloud Run (GCP)</strong></summary>
-
-```bash
-# Build and deploy to Google Cloud Run
-gcloud builds submit --tag gcr.io/YOUR_PROJECT/aura-mission-control
-
-gcloud run deploy aura-mission-control \
-  --image gcr.io/YOUR_PROJECT/aura-mission-control \
-  --platform managed \
-  --region us-central1 \
-  --allow-unauthenticated \
-  --port 4173 \
-  --set-env-vars GEMINI_API_KEY=$GEMINI_API_KEY
-```
-
-</details>
-
-<details>
-<summary><strong>Deploy to Railway / Render</strong></summary>
-
-```bash
-# Add start command to your deployment config:
-# Start Command: npm start
-# Port: 4173
-# Node Version: 22
-```
-
-</details>
-
 ---
 
 ## 🔑 Environment Variables
@@ -574,9 +529,9 @@ gcloud run deploy aura-mission-control \
 | Variable | Description | Required | Example |
 |---|---|---|---|
 | `GEMINI_API_KEY` | Google Gemini 2.0 Flash API key | ✅ Required | `AIza...` |
-| `SUPABASE_URL` | Supabase project URL | ⚠️ For persistence | `https://xyz.supabase.co` |
-| `SUPABASE_ANON_KEY` | Supabase anon public key | ⚠️ For persistence | `eyJ...` |
-| `SUPABASE_SERVICE_KEY` | Supabase service role key (server-only) | ⚠️ For server writes | `eyJ...` |
+| `SUPABASE_URL` | Supabase project URL | ✅ Required | `https://xyz.supabase.co` |
+| `SUPABASE_ANON_KEY` | Supabase anon public key | ✅ Required | `eyJ...` |
+| `SUPABASE_SERVICE_KEY` | Supabase service role key (server-only) | ✅ Required | `eyJ...` |
 | `PORT` | Server port override | ❌ Optional | `4173` |
 | `NODE_ENV` | Runtime environment | ❌ Optional | `production` |
 
@@ -584,10 +539,10 @@ gcloud run deploy aura-mission-control \
 
 ```bash
 # .env.example
-GEMINI_API_KEY=your_gemini_api_key_here
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_KEY=your_supabase_service_key
+GEMINI_API_KEY=
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_KEY=
 PORT=4173
 NODE_ENV=development
 ```
@@ -601,70 +556,49 @@ NODE_ENV=development
 <details open>
 <summary><strong>🎯 Mission Command Center</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/command-center.png" alt="Mission Command Center" width="90%"/>
-<br/><sup>Live KPI monitoring, risk heatmap, AI alert queue, and crowd flow vectors</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
 <details>
 <summary><strong>🌊 Crowd Intelligence</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/crowd-intelligence.png" alt="Crowd Intelligence" width="90%"/>
-<br/><sup>16-zone interactive SVG heatmap, AI predictions, bottleneck detection, and safe route generator</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
 <details>
 <summary><strong>🔍 AI Decision Intelligence Center (Audit)</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/audit-center.png" alt="Audit Intelligence Center" width="90%"/>
-<br/><sup>AI Decision Timeline, XAI cards, compliance log, replay panel, and executive summary</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
 <details>
 <summary><strong>🚨 Incident Commander</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/incident-commander.png" alt="Incident Commander" width="90%"/>
-<br/><sup>AI incident triage with multi-language alert generation and structured response protocols</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
 <details>
 <summary><strong>🚌 Transportation Intelligence</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/transport.png" alt="Transportation Intelligence" width="90%"/>
-<br/><sup>Real-time rail, road, and shuttle capacity management with delay prediction</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
 <details>
 <summary><strong>♿ Accessibility AI</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/accessibility.png" alt="Accessibility AI" width="90%"/>
-<br/><sup>Mobility request management, ADA-compliant route optimization, and SLA monitoring</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
 <details>
 <summary><strong>🤖 AI Copilot</strong></summary>
 
-<div align="center">
-<img src="docs/assets/screenshots/copilot.png" alt="AI Copilot" width="90%"/>
-<br/><sup>Streaming conversational AI assistant with full cross-domain operational context</sup>
-</div>
+*(Screenshot will be added after deployment.)*
 
 </details>
 
@@ -1020,7 +954,7 @@ Most AI applications in stadium management use Gemini to *respond* — to answer
 
 | Avatar | Name | Role |
 |---|---|---|
-| 👨‍💻 | **Rajdeep Chakraborty** | Lead Engineer — AI Architecture, Full-Stack Development, Prompt Engineering |
+| 👨‍💻 | **Rajdeep Dutta** | Lead Engineer — AI Architecture, Full-Stack Development, Prompt Engineering |
 
 <br/>
 
@@ -1037,7 +971,7 @@ Most AI applications in stadium management use Gemini to *respond* — to answer
 ```
 MIT License
 
-Copyright (c) 2026 Rajdeep Chakraborty
+Copyright (c) 2026 Rajdeep Dutta
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1079,10 +1013,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 <div align="center">
 
 ---
-
-<br/>
-
-<img src="docs/assets/aura-logo-small.png" alt="AURA" width="48"/>
 
 <br/>
 
