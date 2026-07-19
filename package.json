@@ -1,5 +1,5 @@
 {
-  "name": "aura-mission-control",
+  "name": "aura-smart-stadium-ai",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -11,3 +11,4 @@
     "dotenv": "^16.4.5"
   }
 }
+
