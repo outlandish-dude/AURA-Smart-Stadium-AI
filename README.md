@@ -1,9 +1,11 @@
-# ✦ AURA
+# ✦ AURA AI
 ### AI Unified Reasoning & Operations Assistant
 
 **The AI Operating System for Smart Stadiums.**
 
 *Built for the Hack2Skill Prompt Wars — Challenge 4: Smart Stadiums & Tournament Operations*
+
+*Check it out = https://aura-smart-stadium-ai.onrender.com
 
 <br/>
 
