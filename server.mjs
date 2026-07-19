@@ -1,3 +1,15 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+// Validate required environment variables
+const requiredEnvVars = ["GEMINI_API_KEY", "SUPABASE_URL", "SUPABASE_ANON_KEY", "SUPABASE_SERVICE_KEY"];
+const missingVars = requiredEnvVars.filter(v => !process.env[v]);
+if (missingVars.length > 0) {
+  console.error(`❌ Startup Error: Missing required environment variables: ${missingVars.join(", ")}`);
+  console.error("Please populate them in your .env file or environment settings.");
+  process.exit(1);
+}
+
 import { createServer } from "node:http";
 import { createReadStream, existsSync } from "node:fs";
 import { extname, join, normalize } from "node:path";
