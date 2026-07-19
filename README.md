@@ -1,11 +1,3 @@
-<div align="center">
-
-<!-- PROJECT BANNER -->
-<img src="docs/assets/banner.png" alt="AURA - AI Unified Reasoning & Operations Assistant" width="100%"/>
-
-<br/>
-<br/>
-
 # ✦ AURA
 ### AI Unified Reasoning & Operations Assistant
 
@@ -1108,7 +1100,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 <br/>
 
-*© 2026 Rajdeep Chakraborty — AURA Mission Control*
+*© 2026 Rajdeep Dutta — AURA Mission Control*
 
 ---
 
